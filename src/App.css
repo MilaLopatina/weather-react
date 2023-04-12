@@ -1,38 +1,102 @@
 .App {
+  font-family: sans-serif;
   text-align: center;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  padding: 10px 0;
+}
+.card {
+  background: linear-gradient(to top, #fff1eb 0%, #ace0f9 100%);
+  box-shadow: 5px 5px 5px rgba(0, 0, 0.1, 0.3);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.container {
+  max-width: 800px;
+  display: block;
+  border-radius: 10px;
+  margin: 0 200px 0 200px;
+}
+input {
+  border-radius: 100px;
+  border-color: #668ba4;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
+  margin-bottom: 10px;
+  padding-left: 10px;
+  max-width: 100%;
+  width: 459px;
+  font-weight: 39px;
+}
+.button {
+  border-radius: 100px;
+  border-color: #668ba4;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
+  margin-bottom: 10px;
+  padding-left: 10px;
+  width: 135px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+h1 {
+  text-align: left;
+  line-height: 48px;
+  font-size: 40px;
+  margin: 0 auto;
+  font-weight: bold;
+  color: rgb(56, 55, 55);
+  margin-bottom: 10px;
+}
+h1::first-letter {
+  text-transform: uppercase;
 }
 
-.App-link {
-  color: #61dafb;
+p {
+  padding: -10px;
+  margin-bottom: 10px;
+  font-size: 18px;
+  color: rgb(56, 55, 55);
+  text-decoration: underline;
+  font-weight: bold;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.material-symbols-outlined {
+  font-size: 65px;
+}
+
+.temperature {
+  display: block;
+  padding-top: -10px;
+  margin-bottom: 10px;
+  font-size: 10px;
+  color: rgb(56, 55, 55);
+  text-align: left;
+}
+.cloudy {
+  font-size: 20px;
+  color: rgb(56, 55, 55);
+  margin-bottom: 10px;
+  margin-top: 20px;
+  font-weight: bolder;
+}
+.degree {
+  font-size: 35px;
+  color: rgb(56, 55, 55);
+  margin-bottom: 10px;
+  margin-top: 20px;
+}
+.units a {
+  color: rgb(56, 55, 55);
+  text-decoration: none;
+  font-size: 35px;
+}
+.phenomena {
+  display: block;
+  color: rgb(56, 55, 55);
+  margin-bottom: 15px;
+  font-size: 15px;
+}
+
+.weather {
+  display: block;
+  text-align: left;
+  color: rgb(56, 55, 55);
+  font-size: 16px;
 }
