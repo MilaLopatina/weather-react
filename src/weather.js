@@ -2,7 +2,6 @@ import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 import Wind from "./Wind";
-import "./index.css";
 import Visibility from "./Visibility";
 import Humidity from "./Humidity";
 
