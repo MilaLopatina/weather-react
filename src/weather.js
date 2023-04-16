@@ -42,7 +42,7 @@ export default function Weather() {
                     8
                   </span>
                   <span className="units">
-                    <p id="celsius">℃</p>|<p id="fahrenheit">°F</p>
+                    <p id="celsius">℃</p>|<p id="fahrenheit"></p>
                   </span>
                 </div>
                 <div className="col-4 cloudy" id="cloudy">
