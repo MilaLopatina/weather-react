@@ -104,3 +104,6 @@ footer {
   text-align: center;
   font-weight: bolder;
 }
+.gitLink {
+  text-decoration: none;
+}

@@ -8,6 +8,7 @@ export default function App() {
         href="https://github.com/MilaLopatina/weather-react"
         target="_blank"
         rel="noreferrer"
+        className="gitLink"
       >
         Open-source code
       </a>{" "}
