@@ -1,67 +1,69 @@
-import React from "react";
+import React, { useState } from "react";
+import axios from "axios";
 import "bootstrap/dist/css/bootstrap.min.css";
+import WeatherInfo from "./WeatherInfo";
 
-import Wind from "./Wind";
-import Visibility from "./Visibility";
-import Humidity from "./Humidity";
+export default function Weather(props) {
+  let [city, setCity] = useState(props.defaultCity);
+  let [weatherData, setWeatherData] = useState({ ready: false });
 
-export default function Weather() {
-  return (
-    <div className="App">
-      <div className="container">
-        <div className="card">
-          <div className="card-body">
-            <form id="SearchForm">
+  function weatherResponse(response) {
+    setWeatherData({
+      ready: true,
+      temperature: response.data.main.temp,
+      description: response.data.weather[0].description,
+      humidity: response.data.main.humidity,
+      wind: response.data.wind.speed,
+      visibility: response.data.main.visibility,
+      icon: response.data.weather[0].icon,
+    });
+  }
+
+  function weatherSubmit(event) {
+    event.preventDefault();
+    search();
+  }
+
+  function handleCity(event) {
+    setCity(event.target.value);
+  }
+
+  function search() {
+    let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=017d56650cd168d68067850318775d43&units=metric`;
+    axios.get(url).then(weatherResponse);
+  }
+
+  if (weatherData.ready) {
+    return (
+      <div className="Weather">
+        <form onSubmit={weatherSubmit}>
+          <div className="row">
+            <div className="col-9">
               <input
                 type="text"
                 placeholder=" Search city "
-                id="CityInput"
-                utocomplete="off"
-                rows="3"
+                className="CityInput"
+                autocomplete="off"
+                onChange={handleCity}
               />
+            </div>
+            <div className="col-3">
               <input type="submit" value="Search" className="button" />
-              <input
-                type="submit"
-                value="Current"
-                className="button"
-                id="currentLocation"
-              />
-            </form>
-
-            <h1 id="city">Kyiv</h1>
-
-            <p id="day"></p>
-
-            <div className="temperature">
-              <div className="row">
-                <div className="col-2 partly">
-                  <span className="material-symbols-outlined">icons</span>
-                </div>
-                <div className="col-4 degree">
-                  <span className="degree" id="degree">
-                    8
-                  </span>
-                  <span className="units">
-                    <p id="celsius">℃</p>
-                    <p id="fahrenheit"></p>
-                  </span>
-                </div>
-                <div className="col-4 cloudy" id="cloudy">
-                  Cloudy | Feels like 10℃
-                </div>
-              </div>
             </div>
 
-            <div className="phenomena">
-              <div className="row">
-                <Humidity />
-                <Visibility />
-                <Wind />
-              </div>
-            </div>
+            <input
+              type="submit"
+              value="Current"
+              className="button"
+              id="currentLocation"
+            />
           </div>
-        </div>
+        </form>
+        <WeatherInfo data={weatherData} />
       </div>
-    </div>
-  );
+    );
+  } else {
+    search();
+    return "Searching...";
+  }
 }
