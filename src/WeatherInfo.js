@@ -1,7 +1,7 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Weather from "./Weather";
-import Date from "./Date";
+import FormatDate from "./FormatDate";
 
 export default function WeatherInfo(props) {
   return (
@@ -9,7 +9,7 @@ export default function WeatherInfo(props) {
       <h1>{props.data.city}</h1>
       <ul>
         <li>
-          <Date date={props.data.date} />
+          <FormatDate date={props.data.date} />
         </li>
         <li>{props.data.description}</li>
       </ul>
