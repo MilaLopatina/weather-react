@@ -11,6 +11,7 @@ export default function WeatherInfo(props) {
       <div>
         <FormatDate date={props.data.date} />
       </div>
+      <div className="text-capitalize">{props.data.description}</div>
       <div className="container">
         <div className="row mt-3 d-flex">
           <div className="col-4">
@@ -18,8 +19,8 @@ export default function WeatherInfo(props) {
           </div>
 
           <div className="col-4">
-            <div>
-              <img src={props.data.iconUrl} alt={props.data.description} />
+            <div className="icon">
+              <img src={props.data.iconUrl} alt="" />
             </div>
           </div>
 

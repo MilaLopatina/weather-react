@@ -11,10 +11,10 @@
 .Weather .temperature {
   color: #49484a;
   font-size: 50px;
-  font-weight: 500px;
   margin-left: 5px;
 }
-.Weather .iconUrl {
-  line-height: 70px;
-  color: red;
+.WeatherInfo img {
+  position: relative;
+
+  top: -15px;
 }

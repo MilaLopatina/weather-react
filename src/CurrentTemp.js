@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "./CurrentTemp.css";
 
 export default function CurrentTemp(props) {
   let [unit, setUnit] = useState("celsius");
