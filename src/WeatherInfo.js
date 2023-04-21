@@ -1,7 +1,8 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Weather from "./Weather";
+
 import FormatDate from "./FormatDate";
+import CurrentTemp from "./CurrentTemp";
 
 export default function WeatherInfo(props) {
   return (
@@ -13,10 +14,15 @@ export default function WeatherInfo(props) {
         </li>
         <li>{props.data.description}</li>
       </ul>
-      <div className="row">
-        <div className="col-6">{props.data.icon}</div>
+      <div className="row mt-3">
+        <div className="col-6">
+          <div className="d-flex">{props.data.icon}</div>
+        </div>
+        <div>
+          <CurrentTemp celsius={props.data.temperature} />
+        </div>
       </div>
-      <div className="temperature">{props.data.temperature}</div>
+
       <div className="col-6">
         <ul>
           <li>Humidity: {props.data.humidity}%</li>

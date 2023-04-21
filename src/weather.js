@@ -11,12 +11,12 @@ export default function Weather(props) {
     setWeatherData({
       ready: true,
       temperature: response.data.main.temp,
-      coordinates: response.data.coord,
+
       description: response.data.weather[0].description,
       humidity: response.data.main.humidity,
       date: new Date(response.data.dt * 1000),
       wind: response.data.wind.speed,
-      visibility: response.data.main.visibility,
+      visibility: response.data.visibility,
       icon: response.data.weather[0].icon,
       city: response.data.name,
     });
@@ -41,25 +41,30 @@ export default function Weather(props) {
       <div className="Weather">
         <form onSubmit={weatherSubmit}>
           <div className="row">
-            <div className="col-9">
+            <div className="col-2">
               <input
                 type="text"
                 placeholder=" Search city "
-                className="CityInput"
-                autocomplete="off"
+                className="form-control"
+                autoFocus="on"
                 onChange={handleCity}
               />
             </div>
             <div className="col-3">
-              <input type="submit" value="Search" className="button" />
+              <input
+                type="submit"
+                value="Search"
+                className="btn btn-primary w-50"
+              />
             </div>
-
-            <input
-              type="submit"
-              value="Current"
-              className="button"
-              id="currentLocation"
-            />
+            <div className="col-3">
+              <input
+                type="submit"
+                value="Current"
+                className="btn btn-primary w-50"
+                id="currentLocation"
+              />
+            </div>
           </div>
         </form>
         <WeatherInfo data={weatherData} />
