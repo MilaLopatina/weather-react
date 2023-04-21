@@ -11,11 +11,14 @@ export default function Weather(props) {
     setWeatherData({
       ready: true,
       temperature: response.data.main.temp,
+      coordinates: response.data.coord,
       description: response.data.weather[0].description,
       humidity: response.data.main.humidity,
+      date: new Date(response.data.dt * 1000),
       wind: response.data.wind.speed,
       visibility: response.data.main.visibility,
       icon: response.data.weather[0].icon,
+      city: response.data.name,
     });
   }
 
