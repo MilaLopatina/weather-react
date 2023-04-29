@@ -11,6 +11,7 @@ export default function ShowWeather(props) {
   function weatherResponse(response) {
     setWeatherData({
       ready: true,
+      coordinates: response.data.coord,
       temperature: response.data.main.temp,
 
       description: response.data.weather[0].description,
