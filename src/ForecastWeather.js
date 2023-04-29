@@ -1,9 +1,9 @@
-import React, { useEffect, useLayoutEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
-import FormatDate from "./FormatDate";
+import ForecastDay from "./ForecastDay";
 
-export default function forecastweather(props) {
-  let [loaded, setLoaded] = usestate(false);
+export default function ForecastWeather(props) {
+  let [loaded, setLoaded] = useState(false);
   let [forecast, setForecast] = useState(null);
 
   useEffect(() => {

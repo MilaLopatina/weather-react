@@ -3,6 +3,7 @@ import axios from "axios";
 import "bootstrap/dist/css/bootstrap.min.css";
 import WeatherInfo from "./WeatherInfo";
 import "./ShowWeather.css";
+import ForecastWeather from "./ForecastWeather";
 
 export default function ShowWeather(props) {
   let [city, setCity] = useState(props.defaultCity);
@@ -72,6 +73,7 @@ export default function ShowWeather(props) {
         </form>
 
         <WeatherInfo data={weatherData} />
+        <ForecastWeather coordinates={weatherData.coordinates} />
       </div>
     );
   } else {
