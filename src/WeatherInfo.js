@@ -14,17 +14,17 @@ export default function WeatherInfo(props) {
       <div className="text-capitalize">{props.data.description}</div>
       <div className="container">
         <div className="row mt-3 d-flex">
-          <div className="col-4">
+          <div className="col-md-5 col-sm-2">
             <CurrentTemp celsius={props.data.temperature} />
           </div>
 
-          <div className="col-4">
+          <div className="col-md-2 col-sm-2">
             <div className="icon">
               <img src={props.data.iconUrl} alt="" />
             </div>
           </div>
 
-          <div className="col-4">
+          <div className="col-md-4 col-sm-3">
             <ul>
               <li>Humidity: {props.data.humidity}%</li>
               <li>Visibility: {props.data.visibility}km</li>
