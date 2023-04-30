@@ -40,6 +40,18 @@ export default function ShowWeather(props) {
     axios.get(url).then(weatherResponse);
   }
 
+  function currentPosition(position) {
+    let longitude = props.coordinates.lon;
+    let latitude = props.coordinates.lat;
+    let url = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&appid=017d56650cd168d68067850318775d43&units=metric`;
+    axios.get(url).then(weatherResponse);
+  }
+
+  function handleCurrent(event) {
+    event.preventDefault();
+    navigator.geolocation.getCurrentPosition(currentPosition);
+  }
+
   if (weatherData.ready) {
     return (
       <div className="ShowWeather">
@@ -67,6 +79,7 @@ export default function ShowWeather(props) {
                 value="Current"
                 className="btn btn-primary w-150"
                 id="currentLocation"
+                onClick={handleCurrent}
               />
             </div>
           </div>

@@ -13,17 +13,21 @@ export default function ForecastDay(props) {
 
   function day() {
     let date = new Date(props.data.dt * 1000);
-    let day = date.getDate();
-    let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
-    return days[day];
+    let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+    let day = days[date.getDay()];
+
+    return day;
   }
 
   return (
     <div>
       <div className="Forecast-day">{day()}</div>
       <div className="icon">
-        <img src={props.data.weather[0].icon} alt="" />
+        <img
+          src={`https://openweathermap.org/img/wn/${props.data.weather[0].icon}@2x.png`}
+          alt=""
+        />
       </div>
       <div className="Forecast-temperature">
         <span className="Forecast-temperature-max">{maxTemperature()}</span>
