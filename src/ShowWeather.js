@@ -41,9 +41,9 @@ export default function ShowWeather(props) {
   }
 
   function currentPosition(position) {
-    let longitude = props.coordinates.lon;
-    let latitude = props.coordinates.lat;
-    let url = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&appid=017d56650cd168d68067850318775d43&units=metric`;
+    let longitude = position.coords.longitude;
+    let latitude = position.coords.latitude;
+    let url = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=017d56650cd168d68067850318775d43&units=metric`;
     axios.get(url).then(weatherResponse);
   }
 

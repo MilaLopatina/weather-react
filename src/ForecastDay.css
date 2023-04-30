@@ -4,3 +4,6 @@
 .Forecast-temperature-min {
   opacity: 0.6;
 }
+.Forecast-temperature-max {
+  font-weight: 100px;
+}
